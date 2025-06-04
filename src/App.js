@@ -1,12 +1,16 @@
 import React from 'react';
 import Navbar from './components/Navbar';
+import Overview from './components/Overview';
+import Education from './components/Education';
+
 
 function App() {
   return (
     <div>
       <Navbar />
-      {/* Sections will go here */}
-      <div id="overview"></div>
+      <Overview />
+      <Education />
+
       <div id="education"></div>
       <div id="experience"></div>
       <div id="projects"></div>

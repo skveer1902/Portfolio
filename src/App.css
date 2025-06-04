@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #101010;
+  z-index: 100;
+  padding: 1rem 2rem;
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navList {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navList li {
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: color 0.3s;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navList li:hover {
+  color: #00bcd4;
+}
+
+/* Overview */
+.overviewSection {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3;
+  padding: 2rem;
+}
+
+.overviewContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  max-width: 1000px;
+  align-items: center;
+}
+
+.overviewImage img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #00bcd4;
+}
+
+.overviewContent {
+  max-width: 600px;
+}
+
+.overviewContent h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.overviewContent p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.cardLinks {
+  display: flex;
+  gap: 1rem;
+}
+
+.cardLink {
+  padding: 0.75rem 1.25rem;
+  background-color: #101010;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.cardLink:hover {
+  background-color: #00bcd4;
+  color: black;
+}
+
+/* Education */
+.educationSection {
+  height: 100vh;
+  padding: 4rem 2rem;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.educationSection h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #101010;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.educationContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.educationCard {
+  background-color: #f0f0f0;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.educationCard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.educationCard p {
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  color: #333;
 }

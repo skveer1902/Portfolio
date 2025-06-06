@@ -225,7 +225,6 @@ section h2 {
   margin-right: 12%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   gap: 2rem;
 }
 

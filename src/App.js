@@ -115,7 +115,7 @@ function App() {
           <div className="overviewContent animateOnScroll">
             <h1>SUBHASH KRISHNA VEER BUDDHI</h1>
             <p>
-              A passionate and versatile developer with hands-on experience in AI/ML, Software Engineering, Blockchain, and Cybersecurity. I thrive on building intelligent systems that solve real-world problems efficiently. My strengths lie in designing scalable solutions, optimizing performance, and ensuring secure, ethical technology. I’m driven by curiosity, continuous learning, and making meaningful contributions through code.
+              I’m a software engineer with practical experience in AI, machine learning, and reinforcement learning. I’ve built and deployed projects that apply these technologies to real-world problems like bias mitigation, intelligent automation, and cybersecurity. Alongside my AI work, I have a strong foundation in core cybersecurity concepts and hands-on experience with tools like Metasploit, OWASP ZAP, and Kali Linux. I enjoy working at the intersection of AI and security to create smart, reliable software.
             </p>
             <div className="cardLinks">
               <a href="https://www.linkedin.com/in/subhash-krishna-veer-buddhi/" target="_blank" rel="noopener noreferrer" className="cardLink">LinkedIn</a>

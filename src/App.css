@@ -179,7 +179,7 @@ section h2 {
 .animateOnScroll {
   opacity: 0;
   transform: translateY(40px);
-  transition: all 0.8s ease-out;
+  transition: all 1s ease-out;
 }
 
 .animateOnScroll.visible {
@@ -382,7 +382,7 @@ section h2 {
 
 .certCard img {
   width: 100%;
-  height:480px;
+  height:100%;
   object-fit: contain;
   border-bottom: 2px solid #ccc;
 }

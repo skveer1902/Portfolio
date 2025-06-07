@@ -221,10 +221,10 @@ function App() {
         <h2 className="animateOnScroll">Certifications</h2>
         <div className="certificationsContainer">
           {[
-            { img: '/images/wipro.jpg', title: 'JAVA Full stack - Wipro', issued: '2023' },
             { img: '/images/Deep.jpg', title: 'Deep Learning - NPTEL', issued: '2023' },
             { img: '/images/cloud.jpg', title: 'Cloud Computing – NPTEL', issued: '2022' },
-            { img: '/images/ibc.jpg', title: 'Blockchain Technologies – IBC Hackfest', issued: '2022' }
+            { img: '/images/ibc.jpg', title: 'Blockchain Technologies – IBC Hackfest', issued: '2022' },
+            { img: '/images/wipro.jpg', title: 'JAVA Full stack - Wipro', issued: '2023' }
           ].map((cert, index) => (
             <div key={index} className="certCard animateOnScroll">
               <img src={cert.img} alt={cert.title} />

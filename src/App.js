@@ -309,6 +309,13 @@ Software Development Lifecycle (SDLC), Product Lifecycle Management.</p>
       <section id="certifications" className="certificationsSection animateOnScroll">
         <h2>Certifications</h2>
         <div className="certificationsContainer">
+         <div className="certCard">
+            <img src="/images/wipro.jpg" alt="Wipro" />
+            <div className="certInfo">
+              <p>JAVA Full stack- Wipro</p>
+              <p>Issued: 2023</p>
+            </div>
+          </div>
           <div className="certCard">
             <img src="/images/Deep.jpg" alt="Deep Learning" />
             <div className="certInfo">
@@ -316,6 +323,7 @@ Software Development Lifecycle (SDLC), Product Lifecycle Management.</p>
               <p>Issued: 2023</p>
             </div>
           </div>
+
           <div className="certCard">
             <img src="/images/cloud.jpg" alt="Cloud Computing" />
             <div className="certInfo">
@@ -324,7 +332,7 @@ Software Development Lifecycle (SDLC), Product Lifecycle Management.</p>
             </div>
           </div>
           <div className="certCard">
-            <img src="/cert3.png" alt="Blockchain Hackfest" />
+            <img src="/images/ibc.jpg" alt="Blockchain Hackfest" />
             <div className="certInfo">
               <p>Blockchain Technologies – IBC Hackfest</p>
               <p>Issued: 2022</p>

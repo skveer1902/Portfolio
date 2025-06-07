@@ -1,27 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-
-import { useEffect } from 'react';
-
 
 function App() {
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
 
-  const animatedSections = document.querySelectorAll('.animateOnScroll');
-  animatedSections.forEach((section) => observer.observe(section));
+    const animatedElements = document.querySelectorAll('.animateOnScroll');
+    animatedElements.forEach((el) => observer.observe(el));
 
-  return () => animatedSections.forEach((section) => observer.unobserve(section));
-}, []);
+    return () => {
+      animatedElements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
@@ -78,7 +78,7 @@ function App() {
       ],
       link: "https://github.com/skveer1902/IDS-IOT.git"
     },
-        {
+    {
       name: "Waste Classification System",
       tech: "Flask, MobileNet, Python",
       image: process.env.PUBLIC_URL + "/images/Waste Classification System.jpg",
@@ -90,11 +90,11 @@ function App() {
       ],
       link: "https://github.com/skveer1902/Waste-Classification-system.git"
     }
-
   ];
 
   return (
     <div>
+      <div className="mainContainer">
       <nav className="navbar">
         <ul className="navList">
           <li onClick={() => scrollToSection('overview')}>Overview</li>
@@ -106,12 +106,13 @@ function App() {
         </ul>
       </nav>
 
-      <section id="overview" className="overviewSection animateOnScroll" >
+      {/* === Overview === */}
+      <section id="overview" className="overviewSection">
         <div className="overviewContainer">
-          <div className="overviewImage">
+          <div className="overviewImage animateOnScroll">
             <img src="/profile.jpg" alt="Subhash Krishna Veer Buddhi" />
           </div>
-          <div className="overviewContent">
+          <div className="overviewContent animateOnScroll">
             <h1>SUBHASH KRISHNA VEER BUDDHI</h1>
             <p>
               A passionate and versatile developer with hands-on experience in AI/ML, Software Engineering, Blockchain, and Cybersecurity. I thrive on building intelligent systems that solve real-world problems efficiently. My strengths lie in designing scalable solutions, optimizing performance, and ensuring secure, ethical technology. I’m driven by curiosity, continuous learning, and making meaningful contributions through code.
@@ -123,33 +124,33 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* === Education === */}
       <section id="education" className="educationSection">
-        <h2>Education</h2>
+        <h2 className="animateOnScroll">Education</h2>
         <div className="educationContainer">
-          <div className="educationCard">
+          <div className="educationCard animateOnScroll">
             <img src="/images/unccLogo.png" alt="UNCC" />
             <h3>Master of Science in Computer Science</h3>
             <p>University of North Carolina at Charlotte</p>
             <p>Dec 2025 | GPA: 3.75/4.0</p>
-            <p><strong>Coursework:</strong>Algorithms and Data Structures, Machine learning, Applied AI, Parallel computing, Principles of Information and
-Security, Deep Reinforcement Learning, Software Systems Development and Integration, Visual Analytics, Data Security and
-Privacy, VAPT, Autoregressive sequence models (Transformers), Bias mitigation, NLP, Front-end and Full-stack Development,
-Software Development Lifecycle (SDLC), Product Lifecycle Management.</p>
+            <p><strong>Coursework:</strong> Algorithms and Data Structures, Machine learning, Applied AI, Parallel computing, Principles of Information and Security, Deep Reinforcement Learning, Software Systems Development and Integration, Visual Analytics, Data Security and Privacy, VAPT, Autoregressive sequence models (Transformers), Bias mitigation, NLP, Front-end and Full-stack Development, Software Development Lifecycle (SDLC), Product Lifecycle Management.</p>
           </div>
-          <div className="educationCard">
+          <div className="educationCard animateOnScroll">
             <img src="/images/vnrLogo.png" alt="VNR" />
             <h3>Bachelor of Technology in Computer Science</h3>
             <p>VNR Vignana Jyothi Institute of Engineering & Technology</p>
             <p>May 2023</p>
-            <p><strong>Coursework:</strong> DBMS, Computer Networks, Operating Systems, Secure Software Engineering, Ethical Hacking, Cyber Forensics, Web \& Database Security, Security in Internet of Things, Cryptography and Network Security, Malware Analysis, Incident Response, Platforms and System Security, Information Security</p>
+            <p><strong>Coursework:</strong> DBMS, Computer Networks, Operating Systems, Secure Software Engineering, Ethical Hacking, Cyber Forensics, Web & Database Security, Security in Internet of Things, Cryptography and Network Security, Malware Analysis, Incident Response, Platforms and System Security, Information Security</p>
           </div>
         </div>
       </section>
 
-      <section id="experience" className="experienceSection animateOnScroll">
-        <h2>Experience</h2>
+      {/* === Experience === */}
+      <section id="experience" className="experienceSection">
+        <h2 className="animateOnScroll">Experience</h2>
         <div className="experienceContainer">
-          <div className="experienceCard">
+          <div className="experienceCard animateOnScroll">
             <h3>Summer Intern – VAPT Analysis</h3>
             <p>VNRVJIET, Hyderabad, India</p>
             <p>June 2023 – Dec 2023</p>
@@ -163,16 +164,15 @@ Software Development Lifecycle (SDLC), Product Lifecycle Management.</p>
               <li>Led knowledge transfer sessions for faculty and IT staff on OWASP Top 10 risks and effective mitigation strategies, driving long-term security awareness across the organization.</li>
               <li>Documented comprehensive vulnerability reports and recommendations for management and stakeholders, facilitating data-driven risk prioritization and compliance reporting.</li>
             </ul>
-
           </div>
         </div>
       </section>
-
-      <section id="projects" className="projectsSection animateOnScroll">
-        <h2>Projects</h2>
+      {/* === Projects === */}
+      <section id="projects" className="projectsSection">
+        <h2 className="animateOnScroll">Projects</h2>
         <div className="projectsContainer">
           {projectList.map((project, index) => (
-            <div key={project.name} className={`projectCard ${project.side}`}>
+            <div key={project.name} className="projectCard animateOnScroll">
               <img src={project.image} alt={project.name} />
               <h3>{project.name}</h3>
               <p>{project.tech}</p>
@@ -188,158 +188,55 @@ Software Development Lifecycle (SDLC), Product Lifecycle Management.</p>
           ))}
         </div>
       </section>
-      <section id="skills" className="skillsSection animateOnScroll">
-      <h2>Skills</h2>
 
-      <div className="skillsGroup">
-        <h4>Programming Languages & Databases</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">Python</div>
-          <div className="skillCard">C</div>
-          <div className="skillCard">C++</div>
-          <div className="skillCard">C#</div>
-          <div className="skillCard">Java</div>
-          <div className="skillCard">JavaScript</div>
-          <div className="skillCard">SQL</div>
-          <div className="skillCard">HTML/CSS</div>
-          <div className="skillCard">MySQL</div>
-          <div className="skillCard">MongoDB</div>
-        </div>
-      </div>
+      {/* === Skills === */}
+      <section id="skills" className="skillsSection">
+        <h2 className="animateOnScroll">Skills</h2>
 
-      <div className="skillsGroup">
-        <h4>Frameworks & Libraries</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">React.js</div>
-          <div className="skillCard">Node.js</div>
-          <div className="skillCard">Flask</div>
-          <div className="skillCard">FastAPI</div>
-          <div className="skillCard">PyTorch</div>
-          <div className="skillCard">TensorFlow</div>
-          <div className="skillCard">Scikit-Learn</div>
-          <div className="skillCard">NumPy</div>
-          <div className="skillCard">.NET</div>
-        </div>
-      </div>
+        {/* Example for 1 skill group — you can repeat for all your groups */}
+        {[
+          { title: 'Programming Languages & Databases', items: ['Python', 'C', 'C++', 'C#', 'Java', 'JavaScript', 'SQL', 'HTML/CSS', 'MySQL', 'MongoDB'] },
+          { title: 'Frameworks & Libraries', items: ['React.js', 'Node.js', 'Flask', 'FastAPI', 'PyTorch', 'TensorFlow', 'Scikit-Learn', 'NumPy', '.NET'] },
+          { title: 'Tools & Paradigms', items: ['Git', 'GitHub', 'VSCode', 'Jupyter Notebook', 'REST API', 'CI/CD Pipelines', 'Agile', 'Project Management'] },
+          { title: 'Cloud Platforms', items: ['AWS', 'Lambda', 'EC2', 'VPC', 'Google Cloud', 'GPUs', 'TPUs'] },
+          { title: 'Soft Skills', items: ['Communication', 'Collaboration', 'Adaptability', 'Problem Solving', 'Fast Learner'] },
+          { title: 'Security', items: ['TCP/IP', 'Firewalls', 'Vulnerability Assessment', 'Ethical Hacking'] },
+          { title: 'Security Tools', items: ['Wireshark', 'Nmap', 'Nessus', 'OpenVAS', 'Burp Suite', 'Metasploit', 'GFI Languard', 'Retina CS', 'Nikto', 'MBSA'] },
+          { title: 'Operating Systems', items: ['Windows', 'Linux', 'MacOS'] },
+          { title: 'Microsoft Office', items: ['PowerPoint', 'Excel', 'Word', 'Outlook'] }
+        ].map((group, index) => (
+          <div key={index} className="skillsGroup animateOnScroll">
+            <h4>{group.title}</h4>
+            <div className="skillsContainer">
+              {group.items.map((item, idx) => (
+                <div key={idx} className="skillCard">{item}</div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
 
-      <div className="skillsGroup">
-        <h4>Tools & Paradigms</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">Git</div>
-          <div className="skillCard">GitHub</div>
-          <div className="skillCard">VSCode</div>
-          <div className="skillCard">Jupyter Notebook</div>
-          <div className="skillCard">REST API</div>
-          <div className="skillCard">CI/CD Pipelines</div>
-          <div className="skillCard">Agile</div>
-          <div className="skillCard">Project Management</div>
-        </div>
-      </div>
-
-      <div className="skillsGroup">
-        <h4>Cloud Platforms</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">AWS</div>
-          <div className="skillCard">Lambda</div>
-          <div className="skillCard">EC2</div>
-          <div className="skillCard">VPC</div>
-          <div className="skillCard">Google Cloud</div>
-          <div className="skillCard">GPUs</div>
-          <div className="skillCard">TPUs</div>
-        </div>
-      </div>
-
-      <div className="skillsGroup">
-        <h4>Soft Skills</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">Communication</div>
-          <div className="skillCard">Collaboration</div>
-          <div className="skillCard">Adaptability</div>
-          <div className="skillCard">Problem Solving</div>
-          <div className="skillCard">Fast Learner</div>
-        </div>
-      </div>
-
-      <div className="skillsGroup">
-        <h4>Security</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">TCP/IP</div>
-          <div className="skillCard">Firewalls</div>
-          <div className="skillCard">Vulnerability Assessment</div>
-          <div className="skillCard">Ethical Hacking</div>
-        </div>
-      </div>
-
-      <div className="skillsGroup">
-        <h4>Security Tools</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">Wireshark</div>
-          <div className="skillCard">Nmap</div>
-          <div className="skillCard">Nessus</div>
-          <div className="skillCard">OpenVAS</div>
-          <div className="skillCard">Burp Suite</div>
-          <div className="skillCard">Metasploit</div>
-          <div className="skillCard">GFI Languard</div>
-          <div className="skillCard">Retina CS</div>
-          <div className="skillCard">Nikto</div>
-          <div className="skillCard">MBSA</div>
-        </div>
-      </div>
-
-      <div className="skillsGroup">
-        <h4>Operating Systems</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">Windows</div>
-          <div className="skillCard">Linux</div>
-          <div className="skillCard">MacOS</div>
-        </div>
-      </div>
-
-      <div className="skillsGroup">
-        <h4>Microsoft Office</h4>
-        <div className="skillsContainer">
-          <div className="skillCard">PowerPoint</div>
-          <div className="skillCard">Excel</div>
-          <div className="skillCard">Word</div>
-          <div className="skillCard">Outlook</div>
-        </div>
-      </div>
-    </section>
-
-      <section id="certifications" className="certificationsSection animateOnScroll">
-        <h2>Certifications</h2>
+      {/* === Certifications === */}
+      <section id="certifications" className="certificationsSection">
+        <h2 className="animateOnScroll">Certifications</h2>
         <div className="certificationsContainer">
-         <div className="certCard">
-            <img src="/images/wipro.jpg" alt="Wipro" />
-            <div className="certInfo">
-              <p>JAVA Full stack- Wipro</p>
-              <p>Issued: 2023</p>
+          {[
+            { img: '/images/wipro.jpg', title: 'JAVA Full stack - Wipro', issued: '2023' },
+            { img: '/images/Deep.jpg', title: 'Deep Learning - NPTEL', issued: '2023' },
+            { img: '/images/cloud.jpg', title: 'Cloud Computing – NPTEL', issued: '2022' },
+            { img: '/images/ibc.jpg', title: 'Blockchain Technologies – IBC Hackfest', issued: '2022' }
+          ].map((cert, index) => (
+            <div key={index} className="certCard animateOnScroll">
+              <img src={cert.img} alt={cert.title} />
+              <div className="certInfo">
+                <p>{cert.title}</p>
+                <p>Issued: {cert.issued}</p>
+              </div>
             </div>
-          </div>
-          <div className="certCard">
-            <img src="/images/Deep.jpg" alt="Deep Learning" />
-            <div className="certInfo">
-              <p>Deep Learning - NPTEL</p>
-              <p>Issued: 2023</p>
-            </div>
-          </div>
-
-          <div className="certCard">
-            <img src="/images/cloud.jpg" alt="Cloud Computing" />
-            <div className="certInfo">
-              <p>Cloud Computing – NPTEL</p>
-              <p>Issued: 2022</p>
-            </div>
-          </div>
-          <div className="certCard">
-            <img src="/images/ibc.jpg" alt="Blockchain Hackfest" />
-            <div className="certInfo">
-              <p>Blockchain Technologies – IBC Hackfest</p>
-              <p>Issued: 2022</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
+    </div>
     </div>
   );
 }

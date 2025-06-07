@@ -13,10 +13,19 @@ html, body {
 @import url('https://fonts.googleapis.com/css2?family=Gabriela&display=swap');
 
 body {
-  margin: 0;
+  overflow: hidden; /* prevent body scrolling */
   font-family: 'Georgia', serif;
   color: #ffffff;
+  font-size: 16px;
 }
+
+.mainContainer {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  height: 100vh;
+}
+
 
 h1, h2, h3, h4, p, li {
   font-family: 'Georgia', serif;
@@ -63,6 +72,7 @@ h1, h2, h3, h4, p, li {
 section {
   padding: 6rem 2rem 4rem 2rem;
   min-height: 100vh;
+  scroll-snap-align: start;
 }
 
 section:nth-child(even) {
